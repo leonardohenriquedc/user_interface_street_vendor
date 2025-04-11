@@ -40,5 +40,4 @@ class _TextButtonEnterState extends State<TextButtonEnter>{
       ),
     );
   }
-
 }
