@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:front_vendas_ambulante_flutter/components/buttons/text_button_enter.dart';
 import 'package:front_vendas_ambulante_flutter/components/stylesfields/space.dart';
+import 'package:front_vendas_ambulante_flutter/components/widgets/image_fundo.dart';
 import 'package:front_vendas_ambulante_flutter/services/changes/insert_credentials.dart';
 import 'package:front_vendas_ambulante_flutter/components/texts_fields/text_field.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -30,14 +31,6 @@ class LoginPageState extends State<LoginPage> {
           child: Image.asset('assets/images/logo_damascie.png'),
         ),
       );
-  }
-
-  Widget imageFundo(){
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      child: Image.asset('assets/images/fundo.png', fit: BoxFit.cover,),
-    );
   }
 
   Widget textFields(){
@@ -87,7 +80,7 @@ class LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Stack(
         children: [
-          imageFundo(),
+          ImageBottom(asset: 'assets/images/fundo.png', context: context).getImageBottom(),
           interactionLoginPage(),
         ]
       ),
