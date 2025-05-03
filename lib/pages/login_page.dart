@@ -38,6 +38,7 @@ class LoginPageState extends State<LoginPage> {
       width: MediaQuery.of(context).size.width / 1.3,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+
         children: [
           SpaceWidget(heigth: 7,),
           TextFieldCustom(labelText: 'Email', fieldInsertValue: 'email', event: InsertCredentials(),),
@@ -52,6 +53,7 @@ class LoginPageState extends State<LoginPage> {
 
     return Container(
       child: TextButtonEnter(labelText: 'Login', event: ValidateCredentals(context)),
+
     );
   }
 
