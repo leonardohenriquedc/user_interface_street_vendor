@@ -89,6 +89,9 @@ class _SingupPageState extends State{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+      ),
       body: Stack(
         alignment: Alignment.center,
         children: [
