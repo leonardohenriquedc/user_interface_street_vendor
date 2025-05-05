@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:front_vendas_ambulante_flutter/components/buttons/text_button_change.dart';
 import 'package:front_vendas_ambulante_flutter/components/buttons/text_button_enter.dart';
 import 'package:front_vendas_ambulante_flutter/components/stylesfields/space.dart';
 import 'package:front_vendas_ambulante_flutter/components/widgets/image_fundo.dart';
+import 'package:front_vendas_ambulante_flutter/services/changes/change_page_to_signup.dart';
 import 'package:front_vendas_ambulante_flutter/services/changes/insert_credentials.dart';
 import 'package:front_vendas_ambulante_flutter/components/texts_fields/text_field.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -53,7 +55,12 @@ class LoginPageState extends State<LoginPage> {
 
     return Container(
       child: TextButtonEnter(labelText: 'Login', event: ValidateCredentals(context)),
+    );
+  }
 
+  Widget buttonRedirectSingUp(BuildContext context){
+    return Container(
+      child: TextButtonChange(labelText: 'Sing up', event: ChangePageToSingup(context)),
     );
   }
 
@@ -69,7 +76,13 @@ class LoginPageState extends State<LoginPage> {
               children: [
                 imageLogo(),
                 textFields(),
-                buttonLogin(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(child: buttonLogin()),
+                    Flexible(child: buttonRedirectSingUp(context))
+                  ],
+                )
               ],
             )
         ),

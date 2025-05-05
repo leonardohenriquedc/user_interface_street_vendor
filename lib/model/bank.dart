@@ -1,9 +1,9 @@
 class Bank {
-  int? id;
+  int id;
 
-  String? name;
+  String name;
 
-  String? keyPix;
+  String keyPix;
 
   List<String>? img;
 
@@ -13,9 +13,4 @@ class Bank {
       this.keyPix,
       this.img
       );
-
-  // factory Bank.fromJson(Map<String, dynamic> json){
-  //   return
-  // }
-
 }

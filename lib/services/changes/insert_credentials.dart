@@ -1,6 +1,6 @@
 import 'package:front_vendas_ambulante_flutter/services/changes/interfaces/is_event.dart';
 import 'package:front_vendas_ambulante_flutter/services/changes/interfaces/is_event_insert.dart';
-import 'package:front_vendas_ambulante_flutter/services/login_service.dart';
+import 'package:front_vendas_ambulante_flutter/services/authentication_service.dart';
 
 class InsertCredentials implements IsEventInsert{
   LoginService loginPage = LoginService.instace;

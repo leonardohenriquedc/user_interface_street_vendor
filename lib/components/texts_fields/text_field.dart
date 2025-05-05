@@ -13,7 +13,7 @@ class TextFieldCustom extends StatefulWidget {
 
   final IsEventInsert event;
 
-  final fieldInsertValue;
+  final String fieldInsertValue;
 
 const TextFieldCustom({
     super.key,
