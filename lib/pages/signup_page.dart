@@ -55,15 +55,15 @@ class _SingupPageState extends State{
   Widget imageLogo(){
     return Container(
       decoration: BoxDecoration(
-          borderRadius:BorderRadius.circular(200),
+          borderRadius:BorderRadius.circular(150),
           color: Colors.black
       ),
       padding: EdgeInsets.all(2),
-      margin: EdgeInsets.only(top: 15, right: 15),
-      width: 150,
-      height: 150,
+      margin: EdgeInsets.only(top: 15),
+      width: 250,
+      height: 250,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(250),
+        borderRadius: BorderRadius.circular(150),
         child: Image.asset('assets/images/logo_damascie.png'),
       ),
     );
@@ -77,7 +77,7 @@ class _SingupPageState extends State{
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           imageLogo(),
-          SpaceWidget(heigth: 12,),
+          SpaceWidget(heigth: 30,),
           fields(),
           buttonSingup(),
         ],
