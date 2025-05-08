@@ -27,7 +27,7 @@ class UserRepository {
     http.Response response = await http.post(
       Uri.parse('${url}user/new'),
       headers: {'Content-Type': 'application/json'},
-      body: newUser.toJson()
+      body: jsonEncode(newUser)
     );
 
     if(response.statusCode != 201){

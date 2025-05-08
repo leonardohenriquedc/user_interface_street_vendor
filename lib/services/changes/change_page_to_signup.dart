@@ -6,10 +6,12 @@ class ChangePageToSingup extends IsEventChange {
 
   BuildContext context;
 
-  ChangePageToSingup(this.context);
+  SignupService singupService;
+
+  ChangePageToSingup(this.context, this.singupService);
 
   @override
   change() {
-    SingupService().signupPage(context);
+    singupService.signupPage(context);
   }
 }

@@ -23,6 +23,7 @@ class LoginService {
 
       Navigator.of(context).pushReplacementNamed('/home');
 
+      //Debugger
       print(token);
     }
   }

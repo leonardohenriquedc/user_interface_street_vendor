@@ -5,6 +5,7 @@ import 'package:front_vendas_ambulante_flutter/components/texts_fields/text_fiel
 import 'package:front_vendas_ambulante_flutter/components/widgets/image_fundo.dart';
 import 'package:front_vendas_ambulante_flutter/services/changes/insert_credentials_to_singuping.dart';
 import 'package:front_vendas_ambulante_flutter/services/changes/start_create_account.dart';
+import 'package:front_vendas_ambulante_flutter/services/singup_service.dart';
 
 class SignupPage extends StatefulWidget{
   @override
@@ -15,21 +16,27 @@ class SignupPage extends StatefulWidget{
 
 class _SingupPageState extends State{
 
+  late SignupService singupService;
+
+  late InsertCredentialsToSinguping insertCredentialsToSinguping;
+
+  late StartCreateAccount startCreateAccount;
+
   Widget fieldName(){
     return Container(
-      child: TextFieldCustom(labelText: 'Name', event: InsertCredentialsToSinguping(), fieldInsertValue: 'name'),
+      child: TextFieldCustom(labelText: 'Name', event: insertCredentialsToSinguping, fieldInsertValue: 'name'),
     );
   }
 
   Widget fieldEmail(){
     return Container(
-      child: TextFieldCustom(labelText: 'Email', event: InsertCredentialsToSinguping(), fieldInsertValue: 'email'),
+      child: TextFieldCustom(labelText: 'Email', event: insertCredentialsToSinguping, fieldInsertValue: 'email'),
     );
   }
 
   Widget fieldPassword(){
     return Container(
-      child: TextFieldCustom(labelText: 'Password', event: InsertCredentialsToSinguping(), fieldInsertValue: 'password'),
+      child: TextFieldCustom(labelText: 'Password', event: insertCredentialsToSinguping, fieldInsertValue: 'password'),
     );
   }
 
@@ -48,7 +55,7 @@ class _SingupPageState extends State{
 
   Widget buttonSingup(){
     return Container(
-      child: TextButtonEnter(labelText: 'Sing Up', event: StartCreateAccount()),
+      child: TextButtonEnter(labelText: 'Sing Up', event: startCreateAccount),
     );
   }
   
@@ -88,6 +95,13 @@ class _SingupPageState extends State{
 
   @override
   Widget build(BuildContext context) {
+
+    this.singupService = SignupService(context);
+
+    this.insertCredentialsToSinguping = InsertCredentialsToSinguping(singupService);
+
+    this.startCreateAccount = StartCreateAccount(singupService);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,

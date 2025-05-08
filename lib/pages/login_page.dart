@@ -8,6 +8,7 @@ import 'package:front_vendas_ambulante_flutter/services/changes/insert_credentia
 import 'package:front_vendas_ambulante_flutter/components/texts_fields/text_field.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:front_vendas_ambulante_flutter/services/changes/validate_credentals.dart';
+import 'package:front_vendas_ambulante_flutter/services/singup_service.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -17,6 +18,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class LoginPageState extends State<LoginPage> {
+
+  late SignupService singupService;
 
   Widget imageLogo(){
     return Container(
@@ -60,7 +63,7 @@ class LoginPageState extends State<LoginPage> {
 
   Widget buttonRedirectSingUp(BuildContext context){
     return Container(
-      child: TextButtonChange(labelText: 'Sing up', event: ChangePageToSingup(context)),
+      child: TextButtonChange(labelText: 'Sing up', event: ChangePageToSingup(context, singupService)),
     );
   }
 
@@ -92,6 +95,9 @@ class LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    this.singupService = SignupService(context);
+
     return Scaffold(
       body: Stack(
         children: [
