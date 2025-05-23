@@ -63,7 +63,7 @@ class LoginPageState extends State<LoginPage> {
 
   Widget buttonRedirectSingUp(BuildContext context){
     return Container(
-      child: TextButtonChange(labelText: 'Sing up', event: ChangePageToSingup(context, singupService)),
+      child: TextButtonChange(labelText: 'Sing up', event: ChangePageToSingup(context, singupService), nivelRadius: 14.8),
     );
   }
 

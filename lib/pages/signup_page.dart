@@ -36,7 +36,7 @@ class _SingupPageState extends State{
 
   Widget fieldPassword(){
     return Container(
-      child: TextFieldCustom(labelText: 'Password', event: insertCredentialsToSinguping, fieldInsertValue: 'password'),
+      child: TextFieldCustom(labelText: 'Password', event: insertCredentialsToSinguping, fieldInsertValue: 'password', obscureText: true),
     );
   }
 
