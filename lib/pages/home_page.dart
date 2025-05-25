@@ -9,9 +9,10 @@ import 'package:front_vendas_ambulante_flutter/services/changes/change_page_to_h
 import 'package:front_vendas_ambulante_flutter/services/changes/interfaces/is_event_invocation.dart';
 import 'package:front_vendas_ambulante_flutter/services/changes/start_create_account.dart';
 import 'package:front_vendas_ambulante_flutter/services/home_service.dart';
-
+import 'package:front_vendas_ambulante_flutter/components/widgets/menu_hamburguer.dart';
+import 'package:front_vendas_ambulante_flutter/components/widgets/image_logo.dart';
 import '../components/buttons/list_title.dart';
-
+import 'package:front_vendas_ambulante_flutter/services/changes/change_page_to_product.dart';
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -20,6 +21,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage>{
+  
+  Widget buttonNewProduct(){
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        color:Colors.black,
+        child: TextButtonChange(
+          labelText: 'Novo Produto',
+          event: ChangePageToProduct(context),
+          colorButton: Colors.blueAccent,
+          padding: EdgeInsets.all(3)
+        ),
+      ),
+    );
+  }
 
   Widget buttonNewSale(){
     return ClipRRect(
@@ -53,26 +69,24 @@ class _HomePageState extends State<HomePage>{
 
   Widget buttons(){
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        buttonNewSale(),
-        SpaceWidget(heigth: 12,),
-        buttonReport()
+      mainAxisAlignment: MainAxisAlignment.center, 
+      children: [ 
+        buttonNewSale(), 
+        SpaceWidget(heigth: 12,), 
+        buttonReport() 
       ],
-    );
+    ); 
   }
-
-  Widget stackWindow(){
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        ImageBottom(asset: 'assets/images/fundo.png', context: context).getImageBottom(),
-        buttons()
+Widget stackWindow(){ 
+    return Stack( 
+      alignment: Alignment.center, 
+      children: [ 
+        ImageBottom(asset: 'assets/images/fundo.png', context: context).getImageBottom(), 
+        buttons() 
       ],
-    );
-  }
-
-  Widget buttonsMenus(){
+    ); 
+  } 
+  Widget buttonsMenus(){ 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -93,23 +107,6 @@ class _HomePageState extends State<HomePage>{
     );
   }
 
-  Widget imageLogo(){
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius:BorderRadius.circular(90),
-          color: Colors.black
-      ),
-      padding: EdgeInsets.all(2),
-      margin: EdgeInsets.only(top: 15, right: 17),
-      width: 40,
-      height: 40,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(50),
-        child: Image.asset('assets/images/logo_damascie.png'),
-      ),
-    );
-  }
-
   Widget drawer(){
     return Drawer(
       width: MediaQuery.of(context).size.width / 2,
@@ -125,7 +122,7 @@ class _HomePageState extends State<HomePage>{
       appBar: AppBar(
         backgroundColor: Colors.white,
         actions: [
-          imageLogo()
+          ImageLogo()
         ],
       ),
       body: Container(

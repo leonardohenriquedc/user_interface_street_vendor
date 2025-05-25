@@ -4,7 +4,7 @@ import 'package:front_vendas_ambulante_flutter/pages/home_page.dart';
 import 'package:front_vendas_ambulante_flutter/pages/login_page.dart';
 import 'package:front_vendas_ambulante_flutter/pages/sale_page.dart';
 import 'package:front_vendas_ambulante_flutter/pages/signup_page.dart';
-
+import 'package:front_vendas_ambulante_flutter/pages/product_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget  {
         '/home' : (context) => HomePage(),
         '/sale': (context) => SalePage(),
         '/signup': (context) => SignupPage(),
+        '/product': (context) => ProductPage(),
       },
     );
   }
