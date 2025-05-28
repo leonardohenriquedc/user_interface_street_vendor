@@ -5,32 +5,33 @@ import 'package:front_vendas_ambulante_flutter/services/changes/change_page_to_h
 import 'package:http/http.dart' as http;
 
 class LoginService {
-  String email = '';
-  String password = '';
+  String _email = '';
+  String _password = '';
 
-  String? token;
+  String? _token;
 
   UserRepository userRepository = UserRepository();
 
   static LoginService instace = LoginService();
 
   validate(BuildContext context) async {
+    http.Response response = await userRepository.routeLogin(
+      new AuthUser(this._email, this._password),
+    );
 
-    http.Response response = await userRepository.routeLogin(new AuthUser(this.email, this.password));
-
-    if(response.body != null) {
-      token = response.body;
+    if (response.body != null) {
+      _token = response.body;
 
       Navigator.of(context).pushReplacementNamed('/home');
 
       //Debugger
-      print(token);
+      print(_token);
     }
   }
 
   insertValue(String emailI, String passwordI) {
-    email = emailI;
+    _email = emailI;
 
-    password = passwordI;
+    _password = passwordI;
   }
 }
