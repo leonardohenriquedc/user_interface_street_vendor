@@ -13,6 +13,7 @@ import 'package:front_vendas_ambulante_flutter/components/widgets/menu_hamburgue
 import 'package:front_vendas_ambulante_flutter/components/widgets/image_logo.dart';
 import '../components/buttons/list_title.dart';
 import 'package:front_vendas_ambulante_flutter/services/changes/change_page_to_product.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -20,24 +21,23 @@ class HomePage extends StatefulWidget {
   }
 }
 
-class _HomePageState extends State<HomePage>{
-  
-  Widget buttonNewProduct(){
+class _HomePageState extends State<HomePage> {
+  Widget buttonNewProduct() {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: Container(
-        color:Colors.black,
+        color: Colors.black,
         child: TextButtonChange(
-          labelText: 'Novo Produto',
+          labelText: 'Produtos',
           event: ChangePageToProduct(context),
           colorButton: Colors.blueAccent,
-          padding: EdgeInsets.all(3)
+          padding: EdgeInsets.all(3),
         ),
       ),
     );
   }
 
-  Widget buttonNewSale(){
+  Widget buttonNewSale() {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: Container(
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage>{
     );
   }
 
-  Widget buttonReport(){
+  Widget buttonReport() {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: Container(
@@ -67,68 +67,59 @@ class _HomePageState extends State<HomePage>{
     );
   }
 
-  Widget buttons(){
+  Widget buttons() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center, 
-      children: [ 
-        buttonNewSale(), 
-        SpaceWidget(heigth: 12,), 
-        buttonReport() 
-      ],
-    ); 
-  }
-Widget stackWindow(){ 
-    return Stack( 
-      alignment: Alignment.center, 
-      children: [ 
-        ImageBottom(asset: 'assets/images/fundo.png', context: context).getImageBottom(), 
-        buttons() 
-      ],
-    ); 
-  } 
-  Widget buttonsMenus(){ 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SpaceWidget(heigth: 50,),
-        ListTitleCustom(
-            title: Text('Perfil', style: TextStyle(color: Colors.white),),
-            icon: Icon(Icons.account_circle_rounded, color: Colors.white,)
-        ),
-        ListTitleCustom(
-            title: Text('Inicio', style: TextStyle(color: Colors.white),),
-            icon: Icon(Icons.home, color: Colors.white,)
-        ),
-        ListTitleCustom(
-            title: Text('Sair', style: TextStyle(color: Colors.white),),
-            icon: Icon(Icons.logout, color: Colors.white,)
-        )
+        buttonNewProduct(),
+        SpaceWidget(heigth: 12),
+        buttonNewSale(),
+        SpaceWidget(heigth: 12),
+        buttonReport(),
       ],
     );
   }
 
-  Widget drawer(){
-    return Drawer(
-      width: MediaQuery.of(context).size.width / 2,
-      backgroundColor: Colors.black12.withAlpha(150),
-      child: buttonsMenus(),
+  Widget stackWindow() {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        ImageBottom(
+          asset: 'assets/images/fundo.png',
+          context: context,
+        ).getImageBottom(),
+        buttons(),
+      ],
+    );
+  }
+
+  Widget buttonsMenus() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SpaceWidget(heigth: 50),
+        ListTitleCustom(
+          title: Text('Perfil', style: TextStyle(color: Colors.white)),
+          icon: Icon(Icons.account_circle_rounded, color: Colors.white),
+        ),
+        ListTitleCustom(
+          title: Text('Inicio', style: TextStyle(color: Colors.white)),
+          icon: Icon(Icons.home, color: Colors.white),
+        ),
+        ListTitleCustom(
+          title: Text('Sair', style: TextStyle(color: Colors.white)),
+          icon: Icon(Icons.logout, color: Colors.white),
+        ),
+      ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: drawer(),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        actions: [
-          ImageLogo()
-        ],
-      ),
-      body: Container(
-        alignment: Alignment.center,
-        child: stackWindow(),
-      ),
+      drawer: MenuHamburguer(),
+      appBar: AppBar(backgroundColor: Colors.white, actions: [ImageLogo()]),
+      body: Container(alignment: Alignment.center, child: stackWindow()),
     );
   }
 }

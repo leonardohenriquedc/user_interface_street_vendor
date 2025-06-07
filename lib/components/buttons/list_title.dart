@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:front_vendas_ambulante_flutter/services/changes/interfaces/is_event_invocation.dart';
 
 class ListTitleCustom extends StatefulWidget {
-
   final Text title;
 
   final Icon icon;
@@ -12,7 +11,7 @@ class ListTitleCustom extends StatefulWidget {
   ListTitleCustom({
     required Text this.title,
     required Icon this.icon,
-    this.event
+    this.event,
   });
 
   @override
@@ -21,16 +20,16 @@ class ListTitleCustom extends StatefulWidget {
   }
 }
 
-class _ListTitleCustomState extends State<ListTitleCustom>{
+class _ListTitleCustomState extends State<ListTitleCustom> {
   @override
   Widget build(BuildContext context) {
     return Container(
       child: ListTile(
         title: widget.title,
         trailing: widget.icon,
-        onTap: widget.event != null ? widget.event?.invocation() : null,
+        onTap: widget.event != null ? () => widget.event?.invocation() : null,
       ),
     );
   }
-
 }
+

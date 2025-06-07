@@ -3,7 +3,6 @@ import 'package:front_vendas_ambulante_flutter/services/changes/interfaces/is_ev
 import 'package:front_vendas_ambulante_flutter/services/home_service.dart';
 
 class ChangePageToHome implements IsEventChange {
-
   BuildContext context;
 
   ChangePageToHome(this.context);
@@ -13,3 +12,4 @@ class ChangePageToHome implements IsEventChange {
     HomeService().newSalePage(context);
   }
 }
+

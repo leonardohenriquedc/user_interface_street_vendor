@@ -34,4 +34,12 @@ class LoginService {
 
     _password = passwordI;
   }
+
+  set email(String email) {
+    this._email = email;
+  }
+
+  set password(String password) {
+    this._password = password;
+  }
 }
