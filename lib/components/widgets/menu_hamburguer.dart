@@ -4,6 +4,7 @@ import 'package:front_vendas_ambulante_flutter/components/stylesfields/space.dar
 import 'package:front_vendas_ambulante_flutter/components/buttons/list_title.dart';
 import 'package:front_vendas_ambulante_flutter/services/changes/back_home_page.dart';
 import 'package:front_vendas_ambulante_flutter/services/changes/back_page.dart';
+import 'package:front_vendas_ambulante_flutter/services/changes/exit_app.dart';
 
 class MenuHamburguer extends StatefulWidget {
   @override
@@ -29,6 +30,7 @@ class _MenuHamburguer extends State<MenuHamburguer> {
         ),
         ListTitleCustom(
           title: Text('Sair', style: TextStyle(color: Colors.white)),
+          event: ExitApp(context),
           icon: Icon(Icons.logout, color: Colors.white),
         ),
       ],
