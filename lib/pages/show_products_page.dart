@@ -19,28 +19,33 @@ class _ShowProductsPage extends State<ShowProductsPage> {
 
   _ShowProductsPage(this._productService);
 
-  List<Widget> products() {
-    Future<List<Product>> products = _productService.getAllProducts();
+  Widget products() {
+    return FutureBuilder<List<Product>>(
+      future: _productService.getAllProducts(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator();
+        } else if (snapshot.hasError) {
+          return Text('Erro: ${snapshot.error}');
+        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return Text('Nenhum produto encontrado.');
+        }
 
-    List<Widget> widgetProducts = [];
-
-    products.then((productss) {
-      widgetProducts =
-          productss.map((product) {
-            return Text('${product.name} ${product.price} ${product.amount}');
-          }).toList();
-    });
-
-    return widgetProducts;
+        List<Product> products = snapshot.data!;
+        return Column(
+          children:
+              products
+                  .map(
+                    (prol) => Text('${prol.name} ${prol.price} ${prol.amount}'),
+                  )
+                  .toList(),
+        );
+      },
+    );
   }
 
   Widget listProducts() {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: products(),
-      ),
-    );
+    return SingleChildScrollView(child: products());
   }
 
   Widget title() {
